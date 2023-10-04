@@ -23,9 +23,9 @@ void dfs(pair<int, int> curr) {
   }
   for (int next : friends[curr.first])  // 인접 정점들을 순회
     if (!visited[next])                 // 방문하지 않은 정점이라면
+      // 방문하고 재귀적으로 DFS 진행 후, 다시 방문하지 않은 상태로 돌린다.
       visited[next] = true, dfs(make_pair(next, curr.second + 1)),
-      visited[next] = false;  // 방문하고 재귀적으로 DFS 진행 후, 다시 방문하지
-                              // 않은 상태로 돌린다.
+      visited[next] = false;
 }
 
 int main() {

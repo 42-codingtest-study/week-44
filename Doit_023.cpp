@@ -26,12 +26,9 @@ int main() {
   int N, M, x, y,
       answer = 0;  // N: 노드 개수, M: 간선 개수, answer: 연결 요소의 개수
   cin >> N >> M;  // N과 M을 입력받음
-  for (int i = 0; i < M; i++) {
-    cin >> x >> y;  // 간선 정보를 입력받음
-    graph[x].push_back(
-        y);  // 양방향 그래프이므로 x와 y 양쪽 모두에 간선 정보를 추가
-    graph[y].push_back(x);
-  }
+  // 양방향 그래프이므로 x와 y 양쪽 모두에 간선 정보를 추가
+  for (int i = 0; i < M; i++)
+    cin >> x >> y, graph[x].push_back(y), graph[y].push_back(x);
   for (int i = 1; i <= N; i++) {
     if (!visited[i]) {  // 모든 노드를 순회하며, 방문하지 않은 노드가 있다면
       answer++;  // 연결 요소의 개수를 하나 증가시키고
